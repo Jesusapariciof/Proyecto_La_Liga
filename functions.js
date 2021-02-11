@@ -16,6 +16,10 @@ for(let i = 0; i < partidos.length; i++){
     let tr = document.createElement("tr");
     
 
+    let tdjornada = document.createElement("td");
+    tdjornada.innerText = partidos[i].matchday;
+    tdjornada.style.paddingLeft="35px"
+
    let tdLocal = document.createElement ("td");
    tdLocal.innerHTML =`<img src= "${urlEquipoLocal}" alt= "escudo" width= "30px"> ${partidos[i].homeTeam.name}`;
 
@@ -35,6 +39,7 @@ for(let i = 0; i < partidos.length; i++){
     let tdVisitante = document.createElement("td");
     tdVisitante.innerHTML = `<img src= "${urlEquipoVisitante}" alt= "escudo" width= "30px"> ${partidos[i].awayTeam.name}`;
 
+    tr.appendChild(tdjornada);
     tr.appendChild(tdLocal);
     tr.appendChild(tdResultado);
     tr.appendChild(tdVisitante);

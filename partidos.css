@@ -1,25 +1,30 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-table{
+} */
+ body{
+    width: 90%;
     margin: auto;
-    border: 3px solid blue;
-    padding: 20px;
-}
-th{margin: 5px;
-    padding: 10px;
-}
-td{
-    text-align: justify;   
-    padding-left: 70px;
-    align-items: center;
+} 
+.container-fluid{
     
+    background-color: rgb(205, 205, 243);
 }
+
 h1{
     text-align: center;
     padding: 10px;
     color: darkblue;
+}
+
+.estiloPuntos{
+    font-weight: bold;
+}
+
+.noticia{
+    border: 3px solid blue;
+    width: 300px;
+    
 }
 

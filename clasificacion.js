@@ -25,6 +25,8 @@ for(let i = 0; i < clasificacion.length; i++){
     
     let tdPuntos = document.createElement("td"); 
     tdPuntos.innerText = clasificacion[i].points;
+    tdPuntos.classList.add("estiloPuntos"); // para dar clase y  luego el estilo en css
+    //tdPuntos.style.fontWeight = "bolder"; // para dar estilo desde JS
 
     let tdPartidosJugados = document.createElement("td"); 
     tdPartidosJugados.innerText = clasificacion[i].playedGames;
@@ -47,8 +49,13 @@ for(let i = 0; i < clasificacion.length; i++){
     let tdDiferencia = document.createElement("td"); 
     tdDiferencia.innerText = clasificacion[i].goalDifference;
 
-    let tdUltimos = document.createElement("td"); 
-    tdUltimos.innerText = clasificacion[i].form;
+     let tdUltimos = document.createElement("td"); //creamos variable para sacar del json los últimos 5 resultados (W,W,L,D,D)
+     tdUltimos.innerText = clasificacion[i].form;
+     let futbol = clasificacion[i].form; // Creamos la variable fútbol para hacer el replaceAll que nos cambia las letras (strings) por lo que le pongamos.
+     futbol = futbol.replaceAll("W","✅"); // Aquí cambiamos el contenido con el replaceAll
+     futbol = futbol.replaceAll("D","➖");
+     futbol = futbol.replaceAll("L","❌");
+     
 
 
     tr.appendChild(tdPosicion);
@@ -61,7 +68,7 @@ for(let i = 0; i < clasificacion.length; i++){
     tr.appendChild(tdGfavor);
     tr.appendChild(tdGcontra);
     tr.appendChild(tdDiferencia);
-    tr.appendChild(tdUltimos);
+    tr.append(futbol);
 
     tbody.appendChild(tr);
 }
