@@ -4,6 +4,7 @@ console.log(partidos)
 
 function getMatches (){
 let tbody = document.getElementById("tabla");
+tbody.classList.add("bodyt")
 for(let i = 0; i < partidos.length; i++){
 
 //Creamos la variable para sacar la id de cada equipo
@@ -18,12 +19,11 @@ for(let i = 0; i < partidos.length; i++){
 
     let tdjornada = document.createElement("td");
     tdjornada.innerText = partidos[i].matchday;
-    tdjornada.style.paddingLeft="35px"
+    // tdjornada.style.paddingLeft="35px"
 
    let tdLocal = document.createElement ("td");
-   tdLocal.innerHTML =`<img src= "${urlEquipoLocal}" alt= "escudo" width= "30px"> ${partidos[i].homeTeam.name}`;
+    tdLocal.innerHTML =`<img src= "${urlEquipoLocal}" alt= "escudo" width= "30px"> ${partidos[i].homeTeam.name}`;
 
-// dentro del resultado, para poder poner el escudo, usamos innerHTML y añadimos una imagen. Esta va siempre entre acentos ´´ 
     let tdResultado = document.createElement("td");
     
     if(partidos[i].score.fullTime.homeTeam===null){

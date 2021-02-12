@@ -3,10 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 } */
- body{
+ /* body{
     width: 90%;
     margin: auto;
-} 
+}  */
 .container-fluid{
     
     background-color: rgb(205, 205, 243);
@@ -25,6 +25,69 @@ h1{
 .noticia{
     border: 3px solid blue;
     width: 300px;
+    margin-left: 10px;
     
 }
+/* .col-sm-8{ border: 3px solid blue;
+    margin: 0px;
 
+}
+
+
+.col-sm-4{
+    border: 3px solid coral;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    
+} */
+
+
+/* .row, .col-sm{
+    display: flex;
+    justify-content: center;
+    border: 1px solid red; */
+/* } */
+
+.col-sm{
+    text-align: center;
+    border: 3px solid darkblue;
+    padding-bottom: 20px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 360px;
+    height: 480px;
+}
+.col-sm:hover{
+    background-color: rgb(205, 205, 243);
+}
+.col-sm, h3{
+    color: darkblue;
+}
+.col-sm, img{
+    border-radius: 10px;
+    margin: auto;
+}
+@media(max-width:768px){
+    .col-sm{
+        margin: auto;
+    }
+}
+button{
+    width: 120px;
+    border-radius: 10px;
+    color: white;
+    background-color: darkblue;
+}
+@media (max-width:768px){
+    .table, style{
+        display: block;
+           overflow-x: auto;
+}
+
+}
+
+tbody, tr, td{
+    text-align: center;
+}

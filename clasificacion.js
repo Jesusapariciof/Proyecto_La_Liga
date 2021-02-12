@@ -11,7 +11,7 @@ for(let i = 0; i < clasificacion.length; i++){
 
      let urlEquipoLocal = "https://crests.football-data.org/" + idEquipoLocal + ".svg";
      let urlEquipoVisitante = "https://crests.football-data.org/" + idEquipoVisitante + ".svg";
-
+    console.log(urlEquipoLocal);
 
     let tr = document.createElement("tr");
 
@@ -55,7 +55,8 @@ for(let i = 0; i < clasificacion.length; i++){
      futbol = futbol.replaceAll("W","✅"); // Aquí cambiamos el contenido con el replaceAll
      futbol = futbol.replaceAll("D","➖");
      futbol = futbol.replaceAll("L","❌");
-     
+     futbol = futbol.replaceAll(","," ");
+
 
 
     tr.appendChild(tdPosicion);
