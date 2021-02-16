@@ -19,13 +19,13 @@ for(let i = 0; i < partidos.length; i++){
 
     let tdjornada = document.createElement("td");
     tdjornada.innerText = partidos[i].matchday;
-    // tdjornada.style.paddingLeft="35px"
+    tdjornada.style.paddingLeft="35px"
 
    let tdLocal = document.createElement ("td");
     tdLocal.innerHTML =`<img src= "${urlEquipoLocal}" alt= "escudo" width= "30px"> ${partidos[i].homeTeam.name}`;
 
     let tdResultado = document.createElement("td");
-    
+        tdResultado.style.paddingLeft="30px"
     if(partidos[i].score.fullTime.homeTeam===null){
        tdResultado.innerText = "Próximamente";
 

@@ -50,7 +50,6 @@ h1{
 
 .col-sm{
     text-align: center;
-    border: 3px solid darkblue;
     padding-bottom: 20px;
     height: 500px;
     display: flex;
@@ -72,6 +71,7 @@ h1{
 @media(max-width:768px){
     .col-sm{
         margin: auto;
+        margin-bottom: 10px;
     }
 }
 button{
@@ -82,12 +82,16 @@ button{
 }
 @media (max-width:768px){
     .table, style{
-        display: block;
-           overflow-x: auto;
+     display: block;
+     overflow-x: auto;
 }
-
-}
-
-tbody, tr, td{
+    tbody, tr, td{
     text-align: center;
 }
+
+}
+
+
+
+tbody, tr, td{
+    text-align: justify;
