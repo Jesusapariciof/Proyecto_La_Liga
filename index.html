@@ -39,7 +39,17 @@
 
     <h1>PARTIDOS</h1>
 
+    <button onclick="vaciar()">Vaciar</button>
+ 
+    <form class="buscar">
+    <p class="busqueda">
+      Búsqueda de equipos: <input  id="filtro" type="search" name="busquedaequipo" placeholder="Escribe aqui el nombre del equipo" class="barra">
+      <input type="button" value="Buscar" onclick="filtrarPorNombre(partidos)" class="boton">
+    </p>
 
+  </form>
+  
+    </form>
     <table class="table table-hover">
         <thead class="table-light">
             <tr>

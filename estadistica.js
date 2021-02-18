@@ -1,28 +1,21 @@
 let estadisticas = data.matches;
-console.log(estadisticas)
+
+getStats();
+getStats2();
+
 function getStats() {
     let arrayNueva = [];
-
-
 
     for (let i = 0; i < estadisticas.length; i++) {
 
         let idL = estadisticas[i].homeTeam.id;
-
         let idV = estadisticas[i].awayTeam.id;
-
         let eLocal = estadisticas[i].homeTeam.name;
-
         let eVisitante = estadisticas[i].awayTeam.name;
-
         let golesL = estadisticas[i].score.fullTime.homeTeam;
-
         let golesV = estadisticas[i].score.fullTime.awayTeam;
-
         let estado = estadisticas[i].status;
-
         let matchesL = estadisticas[i].season.currentMatchday;
-
 
         if (estadisticas[i].status === "FINISHED") {
 
@@ -73,7 +66,7 @@ function getStats() {
         }
         else { console.log("partidospendientes") }
 
-    } 
+    }
 
 
     for (let j = 0; j < arrayNueva.length; j++) {
@@ -125,91 +118,69 @@ function getStats() {
 
 }
 
-getStats();
-
-
-
-function getStats2(){
+function getStats2() {
 
     let segundoArray = [];
 
-    for(let i = 0; i < estadisticas.length; i++){
-
-        let idL = estadisticas[i].homeTeam.id;
+    for (let i = 0; i < estadisticas.length; i++) {
 
         let idV = estadisticas[i].awayTeam.id;
-
-        let eLocal = estadisticas[i].homeTeam.name;
 
         let eVisitante = estadisticas[i].awayTeam.name;
 
         let golesL = estadisticas[i].score.fullTime.homeTeam;
 
-        let golesV = estadisticas[i].score.fullTime.awayTeam;
-
         let estado = estadisticas[i].status;
 
-        if(estadisticas[i].status === "FINISHED"){
-
-            if (segundoArray.length > 0) {
-                let foundHomeTeam = segundoArray.find((element) => element.id === idL);
-                let foundAwayTeam = segundoArray.find((element) => element.id === idV);
-
-                if (foundAwayTeam === undefined) {
-                    segundoArray.push({
-                        id: idV,
-                        name: eVisitante,
-                        goals: golesL,
-                        matches: 1
-                    })
-                } 
-                else if (foundHomeTeam === undefined) {
-                    segundoArray.push({
-                        id: idL,
-                        name: eLocal,
-                        goals: golesL,
-                        matches: 1
-                    })
-                }
-
-                else if (foundAwayTeam) { 
-                    foundAwayTeam.goals += golesL;
-                    foundAwayTeam.matches += 1;
-                    
-                }
-
-            } else {
-                segundoArray.push({
-                    id: idL,
-                    name: eLocal,
-                    goals: golesL,
-                    matches: 1,
-
-                })
-            }
-
+        if (estado !== "FINISHED") {
+            continue;
         }
 
-        let sortedByGolesContra = segundoArray.sort(function (a, b) {
-            return a.goals - b.goals;
-        });
+        let foundAwayTeam = segundoArray.find((element) => element.id === idV);
 
-    
+        if (foundAwayTeam === undefined) {
+            segundoArray.push({
+                id: idV,
+                name: eVisitante,
+                goals: golesL,
+                matches: 1
+            })
+        }
+        else {
+            foundAwayTeam.goals += golesL;
+            foundAwayTeam.matches += 1;
+        }
+
+
+        
+
+
     }
 
+    let sortedByGolesContra = segundoArray.sort(function (a, b) {
+        return a.goals - b.goals;
+    });
+
+    
+    crearTabla2(sortedByGolesContra)
+}
+
+
+
+function crearTabla2(arrayGolesContra) {
     let tbody4 = document.getElementById("tabla4")
-    for(let i = 0; i < 5; i++){
+    for (let i = 0; i < 5; i++) {
 
         let tr = document.createElement("tr");
 
         let tdName = document.createElement("td");
-        tdName.innerText = segundoArray[i].name;
+        tdName.innerText = arrayGolesContra[i].name;
 
         let tdPartidos = document.createElement("td");
-        tdPartidos.innerText =segundoArray[i].matches;
+        tdPartidos.innerText = arrayGolesContra[i].matches;
 
         let tdGolesE = document.createElement("td");
-        tdGolesE.innerText = segundoArray[i].goals;
+        tdGolesE.innerText = arrayGolesContra[i].goals;
 
 
 
@@ -220,7 +191,4 @@ function getStats2(){
         tbody4.append(tr);
     }
 
-    console.log(segundoArray)
 }
-
-getStats2();

@@ -2,51 +2,90 @@ let partidos = data.matches;
 console.log(partidos)
 
 
-function getMatches (){
-let tbody = document.getElementById("tabla");
-tbody.classList.add("bodyt")
-for(let i = 0; i < partidos.length; i++){
+function getMatches(partidos) {
+    let tbody = document.getElementById("tabla");
+    tbody.classList.add("bodyt")
+    vaciar()
+    for (let i = 0; i < partidos.length; i++) {
 
-//Creamos la variable para sacar la id de cada equipo
-    let idEquipoLocal = partidos[i].homeTeam.id;
-    let idEquipoVisitante = partidos[i].awayTeam.id;
-//Creamos otra variable para separar las diferentes id y unir así con las variables anteriores
-    let urlEquipoLocal = "https://crests.football-data.org/" + idEquipoLocal + ".svg";
-    let urlEquipoVisitante = "https://crests.football-data.org/" + idEquipoVisitante +".svg";
+        //Creamos la variable para sacar la id de cada equipo
+        let idEquipoLocal = partidos[i].homeTeam.id;
+        let idEquipoVisitante = partidos[i].awayTeam.id;
+        //Creamos otra variable para separar las diferentes id y unir así con las variables anteriores
+        let urlEquipoLocal = "https://crests.football-data.org/" + idEquipoLocal + ".svg";
+        let urlEquipoVisitante = "https://crests.football-data.org/" + idEquipoVisitante + ".svg";
 
-    let tr = document.createElement("tr");
-    
+        let tr = document.createElement("tr");
 
-    let tdjornada = document.createElement("td");
-    tdjornada.innerText = partidos[i].matchday;
-    tdjornada.style.paddingLeft="35px"
 
-   let tdLocal = document.createElement ("td");
-    tdLocal.innerHTML =`<img src= "${urlEquipoLocal}" alt= "escudo" width= "30px"> ${partidos[i].homeTeam.name}`;
+        let tdjornada = document.createElement("td");
+        tdjornada.innerText = partidos[i].matchday;
+        tdjornada.style.paddingLeft = "35px"
 
-    let tdResultado = document.createElement("td");
-        tdResultado.style.paddingLeft="30px"
-    if(partidos[i].score.fullTime.homeTeam===null){
-       tdResultado.innerText = "Próximamente";
+        let tdLocal = document.createElement("td");
+        tdLocal.innerHTML = `<img src= "${urlEquipoLocal}" alt= "escudo" width= "30px"> ${partidos[i].homeTeam.name}`;
+
+        let tdResultado = document.createElement("td");
+        tdResultado.style.paddingLeft = "30px"
+        if (partidos[i].score.fullTime.homeTeam === null) {
+            tdResultado.innerText = "Próximamente";
+
+        }
+
+        else {
+
+            tdResultado.innerHTML = `${partidos[i].score.fullTime.homeTeam} - ${partidos[i].score.fullTime.awayTeam}`;
+        }
+
+        let tdVisitante = document.createElement("td");
+        tdVisitante.innerHTML = `<img src= "${urlEquipoVisitante}" alt= "escudo" width= "30px"> ${partidos[i].awayTeam.name}`;
+
+        tr.appendChild(tdjornada);
+        tr.appendChild(tdLocal);
+        tr.appendChild(tdResultado);
+        tr.appendChild(tdVisitante);
+
+        tbody.appendChild(tr);
 
     }
 
-     else{
+}
+getMatches(partidos)
 
-    tdResultado.innerHTML = `${partidos[i].score.fullTime.homeTeam} - ${partidos[i].score.fullTime.awayTeam}`;
- }
-   
-    let tdVisitante = document.createElement("td");
-    tdVisitante.innerHTML = `<img src= "${urlEquipoVisitante}" alt= "escudo" width= "30px"> ${partidos[i].awayTeam.name}`;
 
-    tr.appendChild(tdjornada);
-    tr.appendChild(tdLocal);
-    tr.appendChild(tdResultado);
-    tr.appendChild(tdVisitante);
-    
-    tbody.appendChild(tr);
+function filtrarPorNombre(partidos) {
+
+    let nombre = document.querySelector("input").value;
+  
+      let equipoNombre = partidos.filter((e) => {
+       if (e.homeTeam.name.toLowerCase().includes(nombre.toLocaleLowerCase()) || e.awayTeam.name.toLowerCase().includes(nombre.toLocaleLowerCase())){
+         return true;
+       }
+         return false;
+      });
+  
+      getMatches(equipoNombre);
+  
+    }
+  
+  filtrarPorNombre(partidos);
+
+
+function vaciar() {
+    document.getElementById("tabla").innerText="";
 
 }
 
-}
-getMatches()
+// let searchInput = document.getElementById("search"); // llamamos al input
+// let rows = document.querySelectorAll("tbody tr"); // nos selecciona todos los tr del tbody(individualmente)
+
+// searchInput.addEventListener("keyup", function (event) {
+//     let q = event.target.value.toLowerCase();
+//     rows.forEach((row) => {
+//       if(row.querySelector("td").textContent.toLocaleLowerCase().indexOf(q) !== -1) 
+//       row.style.display = "";
+//        else(row.style.display = "none");
+//     });
+// });
+
+
