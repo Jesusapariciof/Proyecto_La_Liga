@@ -39,17 +39,34 @@
 
     <h1>PARTIDOS</h1>
 
-    <button onclick="vaciar()">Vaciar</button>
+    <!-- <button onclick="vaciar()">Vaciar</button> -->
  
-    <form class="buscar">
-    <p class="busqueda">
-      Búsqueda de equipos: <input  id="filtro" type="search" name="busquedaequipo" placeholder="Escribe aqui el nombre del equipo" class="barra">
+    <form>
+      <div class="filtro">
+      <input  id="filtro" type="search" name="busquedaequipo" placeholder="Nombre del equipo" class="barra">
       <input type="button" value="Buscar" onclick="filtrarPorNombre(partidos)" class="boton">
-    </p>
+    </div>
 
-  </form>
-  
+    <div class="resultado">
+      <label for="ganado">Ganado</label>
+      <input type="radio" name="boton1" id="ganado" onclick="getGanados(partidos)">
+      
+      <label for="empatado">Empatado</label>
+      <input type="radio" name="boton1" id="empatado" onclick="getFiltroResultado(partidos)">
+
+      <label for="perdido">Perdido</label>
+      <input type="radio" name="boton1" id="perdido" onclick="getPerdidos(partidos)">
+      
+      <label for="proximamente">Próximamente</label>
+      <input type="radio" name="boton1" id="proximamente" onclick="getFiltroProximamente(partidos)">
+
+    </div>
+
+    
+    
     </form>
+   
+    
     <table class="table table-hover">
         <thead class="table-light">
             <tr>
