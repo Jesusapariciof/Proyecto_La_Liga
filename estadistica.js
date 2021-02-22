@@ -33,58 +33,90 @@ function getStats(estadisticas) {
         let estado = estadisticas[i].status;
         let matchesL = estadisticas[i].season.currentMatchday;
 
-        if (estadisticas[i].status === "FINISHED") {
+    //     if (estadisticas[i].status === "FINISHED") {
 
-            if (arrayNueva.length > 0) {
-                let foundHomeTeam = arrayNueva.find((element) => element.id === idL);
-                let foundAwayTeam = arrayNueva.find((element) => element.id === idV);
+    //         if (arrayNueva.length > 0) {
+    //             let foundHomeTeam = arrayNueva.find((element) => element.id === idL);
+    //             let foundAwayTeam = arrayNueva.find((element) => element.id === idV);
 
-                if (foundHomeTeam === undefined) {
-                    arrayNueva.push({
-                        id: idL,
-                        name: eLocal,
-                        goals: golesL,
-                        matches: 1
-                    })
+    //             if (foundHomeTeam === undefined) {
+    //                 arrayNueva.push({
+    //                     id: idL,
+    //                     name: eLocal,
+    //                     goals: golesL,
+    //                     matches: 1
+    //                 })
 
-                } else if (foundAwayTeam === undefined) {
-                    arrayNueva.push({
-                        id: idV,
-                        name: eVisitante,
-                        goals: golesV,
-                        matches: 1
-                    })
-                }
-                // else if(foundHomeTeam){
-                //     foundHomeTeam.goals+=golesL;
-                //     foundHomeTeam.matches+=1;
-                // }
-                else if (foundAwayTeam && foundHomeTeam) { // las dos condiciones tienen que ser ciertas
-                    foundAwayTeam.goals += golesV;
-                    foundAwayTeam.matches += 1;
-                    foundHomeTeam.goals += golesL;
-                    foundHomeTeam.matches += 1;
-                }
+    //             } else if (foundAwayTeam === undefined) {
+    //                 arrayNueva.push({
+    //                     id: idV,
+    //                     name: eVisitante,
+    //                     goals: golesV,
+    //                     matches: 1
+    //                 })
+    //             }
+    //             // else if(foundHomeTeam){
+    //             //     foundHomeTeam.goals+=golesL;
+    //             //     foundHomeTeam.matches+=1;
+    //             // }
+    //             else if (foundAwayTeam && foundHomeTeam) { // las dos condiciones tienen que ser ciertas
+    //                 foundAwayTeam.goals += golesV;
+    //                 foundAwayTeam.matches += 1;
+    //                 foundHomeTeam.goals += golesL;
+    //                 foundHomeTeam.matches += 1;
+    //             }
 
-                else { }
+    //             else { }
 
-            } else {
-                arrayNueva.push({
-                    id: idL,
-                    name: eLocal,
-                    goals: golesL,
-                    matches: 1,
+    //         } else {
+    //             arrayNueva.push({
+    //                 id: idL,
+    //                 name: eLocal,
+    //                 goals: golesL,
+    //                 matches: 1,
 
-                })
-            }
+    //             })
+    //         }
 
 
+    //     }
+    //     else {  }
+
+    // }
+
+    if (estadisticas[i].status === "FINISHED") {
+        let foundHomeTeam = arrayNueva.find(
+          (element) => element.id === idL
+        );
+        let foundAwayTeam = arrayNueva.find(
+          (element) => element.id === idV
+        );
+
+        if (foundHomeTeam === undefined) {
+          arrayNueva.push({
+            id: idL,
+            name: eLocal,
+            goals: golesL,
+            matches: 1,
+          });
+        } else {
+          foundHomeTeam.goals += golesL;
+          foundHomeTeam.matches += 1;
         }
-        else {  }
 
+        if (foundAwayTeam === undefined) {
+          arrayNueva.push({
+            id: idV,
+            name: eVisitante,
+            goals: golesV,
+            matches: 1,
+          });
+        } else {
+          foundAwayTeam.goals += golesV;
+          foundAwayTeam.matches += 1;
+        }
     }
-
-
+  }
     for (let j = 0; j < arrayNueva.length; j++) {
 
         let golesMedia = arrayNueva[j].goals / arrayNueva[j].matches;
@@ -102,14 +134,11 @@ function getStats(estadisticas) {
         });
     }
 
-
     let tbody = document.getElementById("tabla3")
     for (let i = 0; i < 5; i++) {
 
-
         let tr = document.createElement("tr");
         
-
         let tdEquipos = document.createElement("td");
         tdEquipos.innerText = arrayNueva[i].name;
 
@@ -125,17 +154,12 @@ function getStats(estadisticas) {
         tdMediaGoles.innerText = arrayNueva[i].avg;
         // tdMediaGoles.style.textAlign="center";
 
-
         tr.append(tdEquipos);
         tr.append(tdGolesAFavor);
         tr.append(tdPartidosJugados);
         tr.append(tdMediaGoles);
         tbody.append(tr);
-
-
     }
-
-
 }
 
 function getStats2(estadisticas) {
