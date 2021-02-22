@@ -94,4 +94,17 @@ button{
 
 
 tbody, tr, td{
-    text-align: justify;
+    text-align: justify;}
+
+
+.filtro{
+    display: flex;
+    justify-content: center;
+}
+.resultado{
+    display: flex;
+    justify-content: center;
+}
+.ganado, .empatado, .perdido, .proximo{
+    margin-right: 20px;
+}

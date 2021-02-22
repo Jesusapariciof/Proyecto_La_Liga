@@ -1,7 +1,6 @@
 let clasificacion = data2.standings[0].table;
 console.log(clasificacion)
 
-
 function getClasificacion (){
 let tbody = document.getElementById("tabla2");
 for(let i = 0; i < clasificacion.length; i++){
@@ -11,7 +10,6 @@ for(let i = 0; i < clasificacion.length; i++){
 
      let urlEquipoLocal = "https://crests.football-data.org/" + idEquipoLocal + ".svg";
      let urlEquipoVisitante = "https://crests.football-data.org/" + idEquipoVisitante + ".svg";
-    console.log(urlEquipoLocal);
 
     let tr = document.createElement("tr");
 
@@ -77,4 +75,20 @@ for(let i = 0; i < clasificacion.length; i++){
 }
 getClasificacion()
 
+function getFetch(){
+    const url = "http://api.football-data.org/v2/competitions/2014/standings";
+    fetch(url,{
+        method: "GET",
+        headers: {
+            "X-Auth-Token": "4e11d1dfed8845f79d5c260aff10e68a"
+        }
+    }).then(response =>{
+        if(response.ok) return response.json();
+    }).then(data=>{
+        let tablaFetch =data.standings[0].table;
+     console.log(tablaFetch)
+     
+    })
+}
+getFetch()
 

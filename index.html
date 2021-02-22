@@ -43,26 +43,28 @@
  
     <form>
       <div class="filtro">
-      <input  id="filtro" type="search" name="busquedaequipo" placeholder="Nombre del equipo" class="barra">
+      <input  id="filtro" type="search" name="busquedaequipo" placeholder="Nombre del equipo" class="barra" />
       <input type="button" value="Buscar" onclick="filtrarPorNombre(partidos)" class="boton">
     </div>
 
     <div class="resultado">
+      <div class="ganado">
       <label for="ganado">Ganado</label>
       <input type="radio" name="boton1" id="ganado" onclick="getGanados(partidos)">
-      
+    </div>
+    <div class="empatado">
       <label for="empatado">Empatado</label>
       <input type="radio" name="boton1" id="empatado" onclick="getFiltroResultado(partidos)">
-
+    </div>
+    <div class="perdido">
       <label for="perdido">Perdido</label>
       <input type="radio" name="boton1" id="perdido" onclick="getPerdidos(partidos)">
-      
+    </div>
+    <div class="proximo">
       <label for="proximamente">Próximamente</label>
       <input type="radio" name="boton1" id="proximamente" onclick="getFiltroProximamente(partidos)">
-
     </div>
-
-    
+    </div>
     
     </form>
    

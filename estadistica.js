@@ -92,18 +92,22 @@ function getStats() {
 
 
         let tr = document.createElement("tr");
+        
 
         let tdEquipos = document.createElement("td");
         tdEquipos.innerText = arrayNueva[i].name;
 
         let tdGolesAFavor = document.createElement("td");
         tdGolesAFavor.innerText = arrayNueva[i].goals;
+        // tdGolesAFavor.style.textAlign="center";
 
         let tdPartidosJugados = document.createElement("td");
         tdPartidosJugados.innerText = arrayNueva[i].matches;
+        // tdPartidosJugados.style.textAlign="center";
 
         let tdMediaGoles = document.createElement("td");
         tdMediaGoles.innerText = arrayNueva[i].avg;
+        // tdMediaGoles.style.textAlign="center";
 
 
         tr.append(tdEquipos);
@@ -175,12 +179,15 @@ function crearTabla2(arrayGolesContra) {
 
         let tdName = document.createElement("td");
         tdName.innerText = arrayGolesContra[i].name;
+        
 
         let tdPartidos = document.createElement("td");
         tdPartidos.innerText = arrayGolesContra[i].matches;
+        // tdPartidos.style.textAlign="center";
 
         let tdGolesE = document.createElement("td");
         tdGolesE.innerText = arrayGolesContra[i].goals;
+        // tdGolesE.style.textAlign="center";
 
 
 
