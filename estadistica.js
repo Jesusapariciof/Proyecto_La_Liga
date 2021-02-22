@@ -1,9 +1,25 @@
-let estadisticas = data.matches;
+// let estadisticas = data.matches;
 
-getStats();
-getStats2();
+function getFetch(){
+    const url = "http://api.football-data.org/v2/competitions/2014/matches";
+    fetch(url,{
+        method: "GET",
+        headers: {
+            "X-Auth-Token": "4e11d1dfed8845f79d5c260aff10e68a"
+        }
+    }).then(response =>{
+        if(response.ok) return response.json();
+    }).then(data=>{
+        let tablaFetch =data.matches;
 
-function getStats() {
+        getStats(tablaFetch);
+        getStats2(tablaFetch);
+     
+    })
+  }
+  getFetch()
+
+function getStats(estadisticas) {
     let arrayNueva = [];
 
     for (let i = 0; i < estadisticas.length; i++) {
@@ -122,7 +138,7 @@ function getStats() {
 
 }
 
-function getStats2() {
+function getStats2(estadisticas) {
 
     let segundoArray = [];
 
@@ -163,10 +179,9 @@ function getStats2() {
     });
 
     
-    crearTabla2(sortedByGolesContra)
+    
+     crearTabla2(sortedByGolesContra)
 }
-
-
 
 function crearTabla2(arrayGolesContra) {
     let tbody4 = document.getElementById("tabla4")
@@ -197,19 +212,3 @@ function crearTabla2(arrayGolesContra) {
 
 }
 
-function getFetch(){
-    const url = "http://api.football-data.org/v2/competitions/2014/standings";
-    fetch(url,{
-        method: "GET",
-        headers: {
-            "X-Auth-Token": "4e11d1dfed8845f79d5c260aff10e68a"
-        }
-    }).then(response =>{
-        if(response.ok) return response.json();
-    }).then(data=>{
-        let tablaFetch =data.matches;
-     console.log(tablaFetch)
-     
-    })
-}
-getFetch()

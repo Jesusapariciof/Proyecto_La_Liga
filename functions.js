@@ -1,5 +1,31 @@
-let partidos = data.matches;
-console.log(partidos)
+     let partidos = data.matches;
+
+
+function getFetch(){
+  const url = "http://api.football-data.org/v2/competitions/2014/matches";
+  fetch(url,{
+      method: "GET",
+      headers: {
+          "X-Auth-Token": "4e11d1dfed8845f79d5c260aff10e68a"
+      }
+  }).then(response =>{
+      if(response.ok) return response.json();
+  }).then(data=>{
+      let partidos =data.matches;
+   getMatches(partidos);
+  
+  //  filtrosTabla(tablaFetch);
+  //  filtrarPorNombre(tablaFetch);
+  //  getFiltroResultado(tablaFetch);
+  //  getFiltroProximamente(tablaFetch);
+  //  getGanados(tablaFetch);
+  //  getPerdidos(tablaFetch);
+    
+  })
+}
+getFetch()
+ 
+
 
 
 function getMatches(partidos) {
@@ -47,26 +73,33 @@ function getMatches(partidos) {
     tbody.append(tr);
   }
 }
-getMatches(partidos)
+// getMatches(partidos)
 
 function filtrosTabla() { //CREADA PARA APLICAR LOS FILTROS A LA TABLA
  document.getElementById("tabla").innerText = "";
 }
 
-
 function filtrarPorNombre(partidos) {
- 
-  let nombre = document.querySelector("input").value;
-  let equipoNombre = partidos.filter((e) => {
-    if (e.homeTeam.name.toLowerCase().includes(nombre.toLocaleLowerCase()) || e.awayTeam.name.toLowerCase().includes(nombre.toLocaleLowerCase())) {
-      return true;
-    }
-    return false;
-  });
+//  let boton = document.getElementById("boton");
+ let nombre = document.querySelector("input").value;
+//  console.log(nombre)
+//  boton.addEventListener("click",() =>{
+   
+
+   let equipoNombre = partidos.filter((e) => {
+     if (e.homeTeam.name.toLowerCase().includes(nombre.toLocaleLowerCase()) || e.awayTeam.name.toLowerCase().includes(nombre.toLocaleLowerCase())) {
+       console.log()
+        return true; 
+      
+     }
+     return false;
+     
+   });
+
+//  })
   getMatches(equipoNombre);
 }
-
-filtrarPorNombre(partidos);
+  filtrarPorNombre(partidos);
 
 function getFiltroResultado(partidos) {
  
@@ -177,19 +210,3 @@ function getPerdidos (partidos){
 
 
 
-function getFetch(){
-  const url = "http://api.football-data.org/v2/competitions/2014/standings";
-  fetch(url,{
-      method: "GET",
-      headers: {
-          "X-Auth-Token": "4e11d1dfed8845f79d5c260aff10e68a"
-      }
-  }).then(response =>{
-      if(response.ok) return response.json();
-  }).then(data=>{
-      let tablaFetch =data.matches;
-   console.log(tablaFetch)
-   
-  })
-}
-getFetch()
