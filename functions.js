@@ -6,7 +6,7 @@ function getMatches(partidos) {
   let tbody = document.getElementById("tabla");
   tbody.classList.add("bodyt")
     filtrosTabla() //CREADA PARA APLICAR LOS FILTROS A LA TABLA
-    
+    document.getElementById("tabla").innerText = ""
   for(let i = 0; i < partidos.length; i++) {
 
     //Creamos la variable para sacar la id de cada equipo
@@ -50,10 +50,6 @@ function getMatches(partidos) {
 getMatches(partidos)
 
 function filtrosTabla() { //CREADA PARA APLICAR LOS FILTROS A LA TABLA
-  let nombre = document.querySelector("input").value;
-if(nombre === ""){
-  return true; 
-} else
  document.getElementById("tabla").innerText = "";
 }
 
@@ -70,11 +66,17 @@ function filtrarPorNombre(partidos) {
   getMatches(equipoNombre);
 }
 
-filtrarPorNombre();
+filtrarPorNombre(partidos);
 
 function getFiltroResultado(partidos) {
-
+ 
   let resultado = document.querySelector("input").value;
+  // if( resultado === ""){
+  //   let mensaje = document.createElement("span")
+  //   let divMensaje = document.getElementById("mensaje");
+  //   mensaje.innerText= "Selecciona equipo"
+  //   divMensaje.append(mensaje);
+  // }
   let resultadoEmpate = partidos.filter((e) => {
     // if(resultado === ""){
     //   return false
@@ -87,7 +89,7 @@ function getFiltroResultado(partidos) {
   })
   filtrarPorNombre(resultadoEmpate);
 }
-getFiltroResultado(partidos)
+// getFiltroResultado(partidos)
 
 function getFiltroProximamente(partidos) {
 
@@ -104,7 +106,7 @@ function getFiltroProximamente(partidos) {
 
   filtrarPorNombre(proximamente);
 }
-getFiltroProximamente(partidos);
+// getFiltroProximamente(partidos);
 
 
 function getGanados(partidos) {
@@ -139,7 +141,7 @@ function getGanados(partidos) {
   filtrarPorNombre(ganados);
 
 }
-getGanados(partidos);
+// getGanados(partidos);
 
 function getPerdidos (partidos){
 
@@ -169,5 +171,25 @@ function getPerdidos (partidos){
 
   filtrarPorNombre(perdidos);
 }
-getPerdidos(partidos);
+// getPerdidos(partidos);
 
+
+
+
+
+function getFetch(){
+  const url = "http://api.football-data.org/v2/competitions/2014/standings";
+  fetch(url,{
+      method: "GET",
+      headers: {
+          "X-Auth-Token": "4e11d1dfed8845f79d5c260aff10e68a"
+      }
+  }).then(response =>{
+      if(response.ok) return response.json();
+  }).then(data=>{
+      let tablaFetch =data.matches;
+   console.log(tablaFetch)
+   
+  })
+}
+getFetch()

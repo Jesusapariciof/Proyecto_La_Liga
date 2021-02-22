@@ -50,7 +50,7 @@ function getStats() {
                     foundHomeTeam.matches += 1;
                 }
 
-                else { console.log("no entres aquí") }
+                else { }
 
             } else {
                 arrayNueva.push({
@@ -64,7 +64,7 @@ function getStats() {
 
 
         }
-        else { console.log("partidospendientes") }
+        else {  }
 
     }
 
@@ -156,9 +156,6 @@ function getStats2() {
         }
 
 
-        
-
-
     }
 
     let sortedByGolesContra = segundoArray.sort(function (a, b) {
@@ -199,3 +196,20 @@ function crearTabla2(arrayGolesContra) {
     }
 
 }
+
+function getFetch(){
+    const url = "http://api.football-data.org/v2/competitions/2014/standings";
+    fetch(url,{
+        method: "GET",
+        headers: {
+            "X-Auth-Token": "4e11d1dfed8845f79d5c260aff10e68a"
+        }
+    }).then(response =>{
+        if(response.ok) return response.json();
+    }).then(data=>{
+        let tablaFetch =data.matches;
+     console.log(tablaFetch)
+     
+    })
+}
+getFetch()
