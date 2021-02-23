@@ -13,8 +13,9 @@ function getFetch() {
     getStats(tablaFetch);
     getStats2(tablaFetch);
     quitarLoader();
+    console.log(tablaFetch)
   })
-}
+} 
 getFetch()
 
 function quitarLoader() {
@@ -85,11 +86,11 @@ function getStats(estadisticas) {
 
   let tbody = document.getElementById("tabla3")
   for (let i = 0; i < 5; i++) {
-
+    let escudo = "https://crests.football-data.org/" + arrayNueva[i].id + ".svg"
     let tr = document.createElement("tr");
 
     let tdEquipos = document.createElement("td");
-    tdEquipos.innerHTML = arrayNueva[i].name;
+    tdEquipos.innerHTML= `<img src="${escudo}" alt="logotipo" width="40px"> ${arrayNueva[i].name}`;
 
     let tdGolesAFavor = document.createElement("td");
     tdGolesAFavor.innerText = arrayNueva[i].goals;
@@ -137,7 +138,7 @@ function getStats2(estadisticas) {
       foundAwayTeam.goals += golesL;
       foundAwayTeam.matches += 1;
     }
-  }
+  } console.log(segundoArray)
 
   let sortedByGolesContra = segundoArray.sort(function (a, b) {
     return a.goals - b.goals;
@@ -148,11 +149,12 @@ function getStats2(estadisticas) {
 function crearTabla2(arrayGolesContra) {
   let tbody4 = document.getElementById("tabla4")
   for (let i = 0; i < 5; i++) {
+    let escudo = "https://crests.football-data.org/" + arrayGolesContra[i].id + ".svg"
 
     let tr = document.createElement("tr");
 
     let tdName = document.createElement("td");
-    tdName.innerText = arrayGolesContra[i].name;
+    tdName.innerHTML= `<img src="${escudo}" alt="logotipo" width="40px"> ${arrayGolesContra[i].name}`;
 
     let tdPartidos = document.createElement("td");
     tdPartidos.innerText = arrayGolesContra[i].matches;
