@@ -14,10 +14,16 @@ function getFetch(){
 
         getStats(tablaFetch);
         getStats2(tablaFetch);
-     
+        quitarLoader();
     })
   }
   getFetch()
+
+  function quitarLoader() {
+    let contenedor = document.getElementById("contenedor-carga");
+    contenedor.style.visibility = "hidden";
+    contenedor.style.opacity = "0";
+  }
 
 function getStats(estadisticas) {
     let arrayNueva = [];
@@ -32,57 +38,6 @@ function getStats(estadisticas) {
         let golesV = estadisticas[i].score.fullTime.awayTeam;
         let estado = estadisticas[i].status;
         let matchesL = estadisticas[i].season.currentMatchday;
-
-    //     if (estadisticas[i].status === "FINISHED") {
-
-    //         if (arrayNueva.length > 0) {
-    //             let foundHomeTeam = arrayNueva.find((element) => element.id === idL);
-    //             let foundAwayTeam = arrayNueva.find((element) => element.id === idV);
-
-    //             if (foundHomeTeam === undefined) {
-    //                 arrayNueva.push({
-    //                     id: idL,
-    //                     name: eLocal,
-    //                     goals: golesL,
-    //                     matches: 1
-    //                 })
-
-    //             } else if (foundAwayTeam === undefined) {
-    //                 arrayNueva.push({
-    //                     id: idV,
-    //                     name: eVisitante,
-    //                     goals: golesV,
-    //                     matches: 1
-    //                 })
-    //             }
-    //             // else if(foundHomeTeam){
-    //             //     foundHomeTeam.goals+=golesL;
-    //             //     foundHomeTeam.matches+=1;
-    //             // }
-    //             else if (foundAwayTeam && foundHomeTeam) { // las dos condiciones tienen que ser ciertas
-    //                 foundAwayTeam.goals += golesV;
-    //                 foundAwayTeam.matches += 1;
-    //                 foundHomeTeam.goals += golesL;
-    //                 foundHomeTeam.matches += 1;
-    //             }
-
-    //             else { }
-
-    //         } else {
-    //             arrayNueva.push({
-    //                 id: idL,
-    //                 name: eLocal,
-    //                 goals: golesL,
-    //                 matches: 1,
-
-    //             })
-    //         }
-
-
-    //     }
-    //     else {  }
-
-    // }
 
     if (estadisticas[i].status === "FINISHED") {
         let foundHomeTeam = arrayNueva.find(

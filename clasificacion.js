@@ -14,10 +14,16 @@ function getFetch(){
         let tablaFetch = data.standings[0].table
 
      getClasificacion(tablaFetch) //LLamamos a la función cogiendo los datos de fetch
+     quitarLoader();
     })
 }
 getFetch()
 
+function quitarLoader() {
+    let contenedor = document.getElementById("contenedor-carga");
+    contenedor.style.visibility = "hidden";
+    contenedor.style.opacity = "0";
+  }
 
 function getClasificacion (clasificacion){ // este parametro es el usado para el for
 let tbody = document.getElementById("tabla2");

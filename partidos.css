@@ -1,12 +1,12 @@
-/* *{
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-} */
- /* body{
-    width: 90%;
-    margin: auto;
-}  */
+} 
+  body{
+    overflow: scroll;    
+    overflow-x: hidden;      }
+  
 .container-fluid{
     
     background-color: rgb(205, 205, 243);
@@ -28,25 +28,6 @@ h1{
     margin-left: 10px;
     
 }
-/* .col-sm-8{ border: 3px solid blue;
-    margin: 0px;
-
-}
-
-
-.col-sm-4{
-    border: 3px solid coral;
-    text-align: center;
-    background-color: rgb(255, 255, 255);
-    
-} */
-
-
-/* .row, .col-sm{
-    display: flex;
-    justify-content: center;
-    border: 1px solid red; */
-/* } */
 
 .col-sm{
     text-align: center;
@@ -85,26 +66,85 @@ button{
      display: block;
      overflow-x: auto;
 }
-    tbody, tr, td{
+    /* tbody, tr, td{
     text-align: center;
-}
+} */
 
 }
 
-
-
-tbody, tr, td{
-    text-align: justify;}
+/* tbody, tr, td{
+    text-align: justify;} */
 
 
 .filtro{
     display: flex;
     justify-content: center;
 }
-.resultado{
+  .radiobuttons{
     display: flex;
     justify-content: center;
-}
-.ganado, .empatado, .perdido, .proximo{
+} 
+.ganado, .empatado, .perdido, .proximamente, .todos{
     margin-right: 20px;
+    
+    
+} 
+@media(max-width: 768px){
+    .radiobuttons{
+        display: flex;
+        flex-direction: column;
+         align-items: center; 
+    }
 }
+
+#contenedor_carga{
+    background-color: rgba(250,240,245,0.9);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    -webkit-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    z-index: 10000;
+}
+#carga{
+    border: 15px solid #ccc;
+    border-top-color: #f4266A;
+    border-top-style: groove;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    -webkit-animation: girar 1.5s linear infinite;
+    -o-animation: girar 1.5s linear infinite;
+    animation: girar 1.5s linear infinite;
+}
+
+@keyframes girar{
+    from { transform: : rotate(0def);}
+    to { transform: rotate(360deg);}
+}
+
+.textoError{
+    text-align: center;
+    color: red;
+}
+.alerta{
+    text-align: center;
+}
+
+ /* .taba, td{
+    width: 240px; */
+
+/* }  */
+
+/* .tdL{
+    width: 240px;
+} */
+
