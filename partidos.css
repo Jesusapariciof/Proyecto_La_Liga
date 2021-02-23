@@ -5,30 +5,24 @@
 } 
   body{
     overflow: scroll;    
-    overflow-x: hidden;      }
-  
+    overflow-x: hidden;      
+}
 .container-fluid{
-    
     background-color: rgb(205, 205, 243);
 }
-
 h1{
     text-align: center;
     padding: 10px;
     color: darkblue;
 }
-
 .estiloPuntos{
     font-weight: bold;
 }
-
 .noticia{
     border: 3px solid blue;
     width: 300px;
     margin-left: 10px;
-    
 }
-
 .col-sm{
     text-align: center;
     padding-bottom: 20px;
@@ -66,16 +60,7 @@ button{
      display: block;
      overflow-x: auto;
 }
-    /* tbody, tr, td{
-    text-align: center;
-} */
-
 }
-
-/* tbody, tr, td{
-    text-align: justify;} */
-
-
 .filtro{
     display: flex;
     justify-content: center;
@@ -86,8 +71,6 @@ button{
 } 
 .ganado, .empatado, .perdido, .proximamente, .todos{
     margin-right: 20px;
-    
-    
 } 
 @media(max-width: 768px){
     .radiobuttons{
@@ -96,7 +79,6 @@ button{
          align-items: center; 
     }
 }
-
 #contenedor_carga{
     background-color: rgba(250,240,245,0.9);
     height: 100%;
@@ -125,12 +107,10 @@ button{
     -o-animation: girar 1.5s linear infinite;
     animation: girar 1.5s linear infinite;
 }
-
 @keyframes girar{
-    from { transform: : rotate(0def);}
+    from { transform:  rotate(0def);}
     to { transform: rotate(360deg);}
 }
-
 .textoError{
     text-align: center;
     color: red;
@@ -138,13 +118,16 @@ button{
 .alerta{
     text-align: center;
 }
+.top5{
+    width: 50%;
+    margin: auto;
+}
+@media(max-width:768px){
+    .top5{
+        width: 80%;
+        margin: auto;
+    }
+}
 
- /* .taba, td{
-    width: 240px; */
 
-/* }  */
-
-/* .tdL{
-    width: 240px;
-} */
 
