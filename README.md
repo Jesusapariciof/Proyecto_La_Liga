@@ -36,10 +36,12 @@ Aquí añadimos nuestro diagramas de casos de uso, con su actor y las elipses qu
 
  ## Versiones
 
- v1.1 Añadido ligas extranjeras (23/02/21)
+ v1.1 Añadido ligas extranjeras (25/02/21)
 
  ## TO-DO
 
   - Reestructuración de tablas.
 
   - Mejoras de los radio buttons.
+
+  - v1.1 Añadido ligas extranjeras (25/02/21)

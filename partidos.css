@@ -129,5 +129,32 @@ button{
     }
 }
 
+.jornada{
+    width: 100px;
+   text-align: center;
+}
+.visitante{
+    width: 180px;
+    
+}
+.local{
+width:180px ;
 
+}
+.tdJ{
+    
+    text-align: center;
+    width: 100px;
+}
+table.table.table-hover{
+    width: 90%;
+    margin: auto;
+}
 
+.tdL, .tdV{
+    width: 180px;
+}
+
+.resultado{
+    width: 100px;
+}

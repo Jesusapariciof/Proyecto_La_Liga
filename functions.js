@@ -64,11 +64,11 @@ function getMatches(partidos) {
 
     let tdjornada = document.createElement("td");
     tdjornada.innerText = partidos[i].matchday;
-    tdjornada.classList.add("tdL")
+    tdjornada.classList.add("tdJ");
 
     let tdLocal = document.createElement("td");
     tdLocal.innerHTML = `<img src= "${urlEquipoLocal}" alt= "escudo" width= "30px"> ${partidos[i].homeTeam.name}`;
-    tdLocal.classList.add("tdL")
+    tdLocal.classList.add("tdL");
 
     let tdResultado = document.createElement("td");
     tdResultado.classList.add("tdR")
@@ -80,7 +80,7 @@ function getMatches(partidos) {
     }
     let tdVisitante = document.createElement("td");
     tdVisitante.innerHTML = `<img src= "${urlEquipoVisitante}" alt= "escudo" width= "30px"> ${partidos[i].awayTeam.name}`;
-    tdVisitante.classList.add("tdL")
+    tdVisitante.classList.add("tdV")
 
     tr.append(tdjornada);
     tr.append(tdLocal);
@@ -99,7 +99,7 @@ function filtrarPorNombre(partidos) {
 
   let nombre = document.querySelector("input").value;
   let equipoNombre = partidos.filter((e) => {
-    if (e.homeTeam.name.toLowerCase().includes(nombre.toLocaleLowerCase()) || e.awayTeam.name.toLowerCase().includes(nombre.toLocaleLowerCase())) {
+    if (e.homeTeam.name.toLowerCase().includes(nombre.toLowerCase()) || e.awayTeam.name.toLowerCase().includes(nombre.toLowerCase())) {
       return true;
     }
     return false;
