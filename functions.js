@@ -26,8 +26,9 @@ function quitarLoader() {
 function ponerListener(partidos) {
   let boton = document.getElementById("boton");
   boton.addEventListener("click", () => {
-    filtrarPorNombre(partidos)
-  })
+    `${filtrarPorNombre(partidos)} && ${unselect()} `
+    }
+  )
   let ganados = document.getElementById("ganado");
   ganados.addEventListener("click", () => {
     getGanados(partidos);
@@ -44,10 +45,10 @@ function ponerListener(partidos) {
   proximamente.addEventListener("click", () => {
     getFiltroProximamente(partidos);
   })
-  let todos = document.getElementById("todos");
-  todos.addEventListener("click", () => {
-    filtrarPorNombre(partidos);
-  })
+  // let todos = document.getElementById("todos");
+  // todos.addEventListener("click", () => {
+  //   filtrarPorNombre(partidos);
+  // })
 }
 
 function getMatches(partidos) {
@@ -80,7 +81,7 @@ function getMatches(partidos) {
     }
     let tdVisitante = document.createElement("td");
     tdVisitante.innerHTML = `<img src= "${urlEquipoVisitante}" alt= "escudo" width= "30px"> ${partidos[i].awayTeam.name}`;
-    tdVisitante.classList.add("tdV")
+    tdVisitante.classList.add("tdV");
 
     tr.append(tdjornada);
     tr.append(tdLocal);
@@ -209,4 +210,21 @@ function getQuitarErrorFiltro() {
   alerta.innerHTML = ""
 }
 
+//Creada para que al hacer la búsqueda se quite la selección de los radio buttons
+function unselect(){
+  document.querySelectorAll('input').forEach((x) => x.checked=false);
+}
 
+// function guardarDatos(){
+
+//   let datos = data.matches;
+//   localStorage.setItem("datos", JSON.stringify(datos))
+//       }
+  
+//   function obternerDatos(){
+//     let datos2 =JSON.parse( localStorage.getItem("datos"))
+//     console.log(datos2)
+//   }
+
+  // guardarDatos()
+    // obternerDatos()
