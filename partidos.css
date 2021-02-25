@@ -68,6 +68,7 @@ button{
   .radiobuttons{
     display: flex;
     justify-content: center;
+    margin-top: 10px;
 } 
 .ganado, .empatado, .perdido, .proximamente, .todos{
     margin-right: 20px;
@@ -157,4 +158,31 @@ table.table.table-hover{
 
 .resultado{
     width: 100px;
+}
+
+ul.nav.nav-pills{
+    margin-left: 54px;
+}
+
+.logotipo{
+    
+    display: flex;
+    height: 100px;
+    width: 220px;
+}
+.logotipo2{
+    display: flex;
+    height: 100px;
+    width: 80px;
+    align-items: center;
+}
+.logotipo3{
+    display: flex;
+    height: 100px;
+    align-items: center;
+}
+
+.barra{
+    border:0.5px solid rgb(213, 213, 245) 
+    
 }

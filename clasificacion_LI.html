@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Clasificación</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <link rel="stylesheet" href="/partidos.css">
 
 </head>
 <body>
-  <div id="contenedor-carga">
-    <div id="carga"></div>
-  </div>
+<div id="contenedor-carga">
+  <div id="carga"></div>
+</div>
 
+<main>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/home.html"> <img src="/img/icono.png" alt="logo" width="80" height="40"></a>
+      <a class="navbar-brand" href="/home.html"> <img src="/img/Serie_A_Logo_(ab_2019).png" alt="logo" width="50" height="40"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -25,13 +26,13 @@
             <a class="nav-link active" aria-current="page" href="/home.html">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="estadistica.html">Liga Española</a>
+            <a class="nav-link" href="/clasificacion.html">Liga Española</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="estadistica_LF.html">Liga Francesa</a>
+            <a class="nav-link" href="/clasificacion_LF.html">Liga Francesa</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="estadistica_LI.html">Liga Italiana</a>
+            <a class="nav-link" href="/clasificacion_LI.html">Liga Italiana</a>
           </li>
         </ul>
         <span class="navbar-text">
@@ -41,55 +42,46 @@
     </div>
   </nav>
 
-    <div class="submenu">
+
+  
+
+            <h1>CLASIFICACIÓN</h1>
+            
+    <table class="table table-hover">
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="index.html">Partidos</a>
+          <a class="nav-link" aria-current="page" href="partidos_LI.html">Partidos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/clasificacion.html">Clasificación</a>
+          <a class="nav-link active" href="/clasificacion_LI.html">Clasificación</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="estadistica.html">Estadísticas</a>
+          <a class="nav-link" href="estadistica_LI.html">Estadísticas</a>
         </li>
-      </div>
+<thead class="table-light">
+    <tr>
+        <th></th>
+        <th>Equipo</th>
+        <th>Pts</th>
+        <th>PJ</th>
+        <th>V</th>
+        <th>E</th>
+        <th>D</th>
+        <th>GF</th>
+        <th>GC</th>
+        <th>DG</th>
+        <th>Últimos 5</th>
+    </tr>
+</thead>
+<tbody id="tabla2">
 
-    <h1>TOP 5 MEDIA DE GOLES A FAVOR </h1>
-    <div class="top5">
-    <table class="table table-hover">
-        <thead class="table-light">
-            <tr>
-                <th>Equipos</th>
-                <th>GF</th>
-                <th>PJ</th>
-                <th>AVG</th>
-            </tr>
-        </thead>
-        <tbody id= "tabla3"></tbody>
-    </table>
-  </div>
-      <h1>TOP 5 MENOS GOLES EN CONTRA VISITANTE</h1>
-      <div class="top5">
-    <table class="table table-hover">
-      <thead class="table-light">
-          <tr>
-              <th>Equipo</th>
-              <th>PJ</th>
-              <th>GCv</th>
-          </tr>
-      </thead>
-      <tbody id= "tabla4"></tbody>
-  </table>
-</div>
-   
-   
+</tbody>
+</table>
+</main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>   
-
-            <script src="/response.js"></script>
-            <script src="/response2.js"></script>
-            <script src="/estadistica.js"></script>
-
-    
+    <script src="/response.js"></script>
+    <script src="/response2.js"></script>
+    <script src="/clasificacion_LI.js"></script>
 </body>
 </html>
