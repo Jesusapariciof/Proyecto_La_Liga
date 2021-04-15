@@ -70,7 +70,7 @@ button{
     justify-content: center;
     margin-top: 10px;
 } 
-.ganado, .empatado, .perdido, .proximamente, .todos{
+ .ganado, .empatado, .perdido, .proximamente, .todos{
     margin-right: 20px;
 } 
 @media(max-width: 768px){
@@ -78,7 +78,7 @@ button{
         display: flex;
         flex-direction: column;
          align-items: center; 
-    }
+    } 
 }
 #contenedor_carga{
     background-color: rgba(250,240,245,0.9);
@@ -186,3 +186,51 @@ ul.nav.nav-pills{
     border:0.5px solid rgb(213, 213, 245) 
     
 }
+
+@media(max-width:768px){
+.botones-grupo{
+    margin-bottom: 10px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.submenuP {
+    display: flex;
+    justify-content: center;
+    
+}
+
+}
+@media(max-width:768px){
+
+    .ganado, .perdido{
+        margin-bottom: 10px;
+}
+}
+@media(min-width:768px){
+
+    .botones-grupo{
+       display: flex;
+       justify-content: center;
+       width: 100%;
+       margin-bottom: 20px;
+       
+   }
+   .ganado-empatado{
+       display: flex;
+   }
+   .perdido-prox{
+       display: flex;
+   } 
+   .submenuP{
+       margin-left: 65px;
+   }
+   .clasi{
+    margin-left: 60px;
+}
+}
+.btn.btn-outline-primary{
+    width:130px
+}
+
