@@ -1,6 +1,6 @@
 
 function getFetch() {
-  const url = "http://api.football-data.org/v2/competitions/2014/matches";
+  const url = "https://api.football-data.org/v2/competitions/2014/matches";
   fetch(url, {
     method: "GET",
     headers: {

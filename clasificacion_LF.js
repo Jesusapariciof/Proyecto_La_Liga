@@ -1,5 +1,5 @@
 function getFetch() {
-    const url = "http://api.football-data.org/v2/competitions/2015/standings";
+    const url = "https://api.football-data.org/v2/competitions/2015/standings";
     fetch(url, {
         method: "GET",
         headers: {
